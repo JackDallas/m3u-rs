@@ -62,7 +62,7 @@ impl<R> IptvEntryReader<R>
 where
     R: std::io::BufRead,
 {
-    pub fn open_iptv(mut reader: R) -> Result<Self, EntryExtReaderConstructionError> {
+    pub fn open_iptv_buf(mut reader: R) -> Result<Self, EntryExtReaderConstructionError> {
         Self::new(reader)
     }
 }
