@@ -58,6 +58,15 @@ impl IptvEntryReader<std::io::BufReader<std::fs::File>> {
     }
 }
 
+impl<R> IptvEntryReader<R>
+where
+    R: std::io::BufRead,
+{
+    pub fn open_iptv(mut reader: R) -> Result<Self, EntryExtReaderConstructionError> {
+        Self::new(reader)
+    }
+}
+
 impl<'r, R> Iterator for IptvEntries<'r, R>
 where
     R: std::io::BufRead,
